@@ -1,0 +1,2 @@
+Command: ninja all
+ninja: error: '/home/john/Programacao/Estudos/Esp32_Edge_AI/inicio/Primeiro_dia/blink/main/blink.c', needed by 'esp-idf/main/CMakeFiles/__idf_main.dir/blink.c.obj', missing and no known rule to make it

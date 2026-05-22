@@ -1,7 +1,7 @@
 {
     "version":            "1.3",
     "project_name":       "blink",
-    "project_version":    "1",
+    "project_version":    "2254c2f-dirty",
     "project_path":       "/home/john/Programacao/Estudos/Esp32_Edge_AI/inicio/Primeiro_dia/blink",
     "idf_path":           "/home/john/esp/esp-idf",
     "build_dir":          "/home/john/Programacao/Estudos/Esp32_Edge_AI/inicio/Primeiro_dia/blink/build",
@@ -1870,7 +1870,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "/home/john/Programacao/Estudos/Esp32_Edge_AI/inicio/Primeiro_dia/blink/build/esp-idf/main/libmain.a",
-            "sources": [ "/home/john/Programacao/Estudos/Esp32_Edge_AI/inicio/Primeiro_dia/blink/main/blink.c" ],
+            "sources": [ "/home/john/Programacao/Estudos/Esp32_Edge_AI/inicio/Primeiro_dia/blink/main/blink.cpp" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {
