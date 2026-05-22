@@ -1,0 +1,12 @@
+cd ~/esp/esp-idf
+source export.fish
+
+idf.py create-project blink
+
+cd blink
+
+idf.py set-target esp32s3
+
+idf.py build
+
+main/blink.cpp

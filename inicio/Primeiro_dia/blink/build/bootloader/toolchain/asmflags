@@ -1,0 +1,5 @@
+"-specs=/home/john/Programacao/Estudos/Esp32_Edge_AI/inicio/Primeiro_dia/blink/build/bootloader/specs/picolibc.specs"
+-mlongcalls
+-fno-builtin-memcpy
+-fno-builtin-memset
+-fno-builtin-bzero
