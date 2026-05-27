@@ -10,3 +10,7 @@ idf.py set-target esp32s3
 idf.py build
 
 main/blink.cpp
+
+idf.py -p /dev/ttyACM0 flash
+
+idf.py -p /dev/ttyACM0 monitor

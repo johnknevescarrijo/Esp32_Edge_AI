@@ -1,0 +1,2 @@
+source /home/john/Programacao/Estudos/Esp32_Edge_AI/inicio/Segundo_dia/blink/build/bootloader/gdbinit/symbols
+source /home/john/Programacao/Estudos/Esp32_Edge_AI/inicio/Segundo_dia/blink/build/bootloader/gdbinit/connect

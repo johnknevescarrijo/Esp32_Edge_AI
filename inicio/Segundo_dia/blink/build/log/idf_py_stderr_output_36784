@@ -1,0 +1,10 @@
+Command: /home/john/.espressif/python_env/idf6.1_py3.13_env/bin/python /home/john/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/john/Programacao/Estudos/Esp32_Edge_AI/inicio/Segundo_dia/blink/build/blink.elf /home/john/Programacao/Estudos/Esp32_Edge_AI/inicio/Segundo_dia/blink/build/bootloader/bootloader.elf -m '/home/john/.espressif/python_env/idf6.1_py3.13_env/bin/python' '/home/john/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyACM0'
+[0;33m--- esp-idf-monitor 1.9.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x42011838: [0;33mtlsf_fls[0m[0m at [0;32m/home/john/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h[0m[0m:[1;31m114[0m
+[0m--- (inlined by) [0;33mmapping_insert[0m[0m at [0;32m/home/john/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h[0m[0m:[1;31m316[0m
+[0m--- (inlined by) [0;33mblock_insert[0m[0m at [0;32m/home/john/esp/esp-idf/components/heap/tlsf/tlsf_control_functions.h[0m[0m:[1;31m429[0m
+[0m--- (inlined by) [0;33mtlsf_add_pool[0m[0m at [0;32m/home/john/esp/esp-idf/components/heap/tlsf/tlsf.c[0m[0m:[1;31m330[0m
+[0m--- 0x403c8700: [0;33m_stext[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x403c8904: [0;33mcall_start_cpu0[0m[0m at [0;32m/home/john/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m
