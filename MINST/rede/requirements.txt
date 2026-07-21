@@ -1,0 +1,21 @@
+# Core AI
+torch==2.5.0
+torchvision==0.20.0
+
+# Edge AI (LiteRT)
+litert-torch
+ai-edge-litert
+
+# ONNX
+onnx==1.16.2
+onnxruntime==1.19.2
+
+# API
+fastapi==0.115.0
+uvicorn==0.30.6
+pydantic==2.9.2
+
+# Utils
+numpy>=1.26.4,<2.0.0
+pillow>=10.4.0
+opencv-python>=4.10.0
