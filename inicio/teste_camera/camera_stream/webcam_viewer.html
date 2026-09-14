@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>ESP32-S3 USB WebCam</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #18191a;
+      color: #f0f2f5;
+    }
+    h1 { margin-bottom: 12px; font-size: 24px; }
+    p { color: #b0b3b8; margin-top: 0; }
+    video {
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      width: 640px;
+      height: 480px;
+      background: #000;
+      object-fit: cover;
+    }
+    .controls { margin-top: 15px; display: flex; gap: 10px; }
+    select, button {
+      padding: 10px 16px;
+      font-size: 15px;
+      border-radius: 6px;
+      border: 1px solid #3a3b3c;
+      background: #242526;
+      color: #e4e6eb;
+    }
+    button {
+      background: #2374e1;
+      color: white;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #1b66c9; }
+  </style>
+</head>
+<body>
+  <h1>ESP32-S3 WebCam USB (UVC)</h1>
+  <p>Transmissão direta via cabo USB-C sem depender de Wi-Fi</p>
+  <video id="video" autoplay playsinline></video>
+  <div class="controls">
+    <select id="cameraSelect"></select>
+    <button id="startBtn">Conectar / Trocar</button>
+  </div>
+
+  <script>
+    const video = document.getElementById('video');
+    const select = document.getElementById('cameraSelect');
+    const btn = document.getElementById('startBtn');
+
+    async function loadCameras() {
+      try {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const currentSelection = select.value;
+        select.innerHTML = '';
+        devices.filter(d => d.kind === 'videoinput').forEach(d => {
+          const opt = document.createElement('option');
+          opt.value = d.deviceId;
+          opt.text = d.label || `Câmera ${select.length + 1}`;
+          if (opt.text.toLowerCase().includes('esp') || opt.text.toLowerCase().includes('uvc')) {
+            opt.selected = true;
+          }
+          select.appendChild(opt);
+        });
+      } catch (err) {
+        console.error('Erro ao listar câmeras:', err);
+      }
+    }
+
+    async function startStream() {
+      if (video.srcObject) {
+        video.srcObject.getTracks().forEach(t => t.stop());
+      }
+      try {
+        const constraints = {
+          video: select.value ? { deviceId: { exact: select.value } } : true
+        };
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        video.srcObject = stream;
+        await loadCameras();
+      } catch (err) {
+        alert('Erro ao acessar a câmera: ' + err.message);
+      }
+    }
+
+    btn.onclick = startStream;
+    startStream();
+  </script>
+</body>
+</html>
