@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>ESP32-S3 WebCam + Detector de Movimento</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #121314;
+      color: #f0f2f5;
+    }
+    h1 { margin-bottom: 6px; font-size: 22px; }
+    p { color: #8a8d91; margin-top: 0; margin-bottom: 16px; font-size: 14px; }
+    .video-container {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      background: #000;
+      width: 480px;
+      height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .status-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(0,0,0,0.65);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+    }
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #31a24c;
+      margin-right: 6px;
+    }
+    .controls {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    select, button {
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: 1px solid #3a3b3c;
+      background: #242526;
+      color: #e4e6eb;
+      outline: none;
+    }
+    select { max-width: 280px; cursor: pointer; }
+    button {
+      background: #2374e1;
+      color: white;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #1b66c9; }
+    .tip {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #00bcd4;
+      background: rgba(0, 188, 212, 0.1);
+      padding: 8px 14px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ESP32-S3 WebCam + Detecção de Movimento</h1>
+  <p>Câmera OV3660 via USB-C (UVC) | LED ativo no GPIO 38</p>
+
+  <div class="video-container">
+    <div class="status-badge" id="statusBadge">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="statusText">Aguardando câmera...</span>
+    </div>
+    <video id="video" autoplay playsinline></video>
+  </div>
+
+  <div class="controls">
+    <select id="cameraSelect">
+      <option value="">Carregando dispositivos...</option>
+    </select>
+    <button id="startBtn">Conectar Câmera</button>
+  </div>
+
+  <div class="tip">
+    💡 Ao se mover na frente da câmera, observe o LED no GPIO 38 acender!
+  </div>
+
+  <script>
+    const video = document.getElementById('video');
+    const select = document.getElementById('cameraSelect');
+    const btn = document.getElementById('startBtn');
+    const statusText = document.getElementById('statusText');
+    const statusDot = document.getElementById('statusDot');
+
+    async function loadCameras() {
+      try {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const videoDevices = devices.filter(d => d.kind === 'videoinput');
+        
+        select.innerHTML = '';
+        if (videoDevices.length === 0) {
+          select.innerHTML = '<option value="">Nenhuma câmera detectada</option>';
+          return;
+        }
+
+        let selectedIndex = 0;
+        videoDevices.forEach((d, idx) => {
+          const opt = document.createElement('option');
+          opt.value = d.deviceId;
+          const label = d.label || `Câmera ${idx + 1}`;
+          opt.text = label;
+          // Prioriza o ESP UVC se o nome contiver esp ou uvc
+          if (label.toLowerCase().includes('esp') || label.toLowerCase().includes('uvc')) {
+            selectedIndex = idx;
+          }
+          select.appendChild(opt);
+        });
+
+        select.selectedIndex = selectedIndex;
+      } catch (err) {
+        console.error('Erro ao listar câmeras:', err);
+      }
+    }
+
+    async function startStream() {
+      statusText.innerText = 'Conectando...';
+      statusDot.style.background = '#f5c33b';
+
+      if (video.srcObject) {
+        video.srcObject.getTracks().forEach(t => t.stop());
+        video.srcObject = null;
+        // Pausa breve para liberar o descritor V4L2 no Linux
+        await new Promise(r => setTimeout(r, 200));
+      }
+
+      try {
+        const constraints = {
+          video: {
+            deviceId: select.value ? { exact: select.value } : undefined,
+            width: { ideal: 320 },
+            height: { ideal: 240 }
+          }
+        };
+
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        video.srcObject = stream;
+        statusText.innerText = 'Câmera Ativa';
+        statusDot.style.background = '#31a24c';
+
+        // Atualiza a lista caso os labels não estivessem visíveis antes da permissão
+        await loadCameras();
+      } catch (err) {
+        statusText.innerText = 'Erro ao abrir';
+        statusDot.style.background = '#fa3e3e';
+        console.error('Falha ao abrir vídeo:', err);
+        alert('Erro ao acessar a câmera: ' + err.message + '\n\nCertifique-se de escolher a câmera "ESP UVC" no seletor.');
+      }
+    }
+
+    btn.onclick = startStream;
+
+    // Inicialização ao carregar a página
+    window.addEventListener('load', async () => {
+      await loadCameras();
+      // Solicita permissão se ainda não tiver labels
+      if (select.options.length > 0 && select.options[0].text.startsWith('Câmera 1')) {
+        startStream();
+      } else if (select.value) {
+        startStream();
+      }
+    });
+  </script>
+</body>
+</html>
