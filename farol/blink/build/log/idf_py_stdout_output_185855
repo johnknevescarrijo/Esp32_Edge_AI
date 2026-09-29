@@ -1,0 +1,352 @@
+Command: /home/john/.espressif/python_env/idf6.1_py3.13_env/bin/python /home/john/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/john/Programacao/Estudos/Esp32_Edge_AI/farol/blink/build/blink.elf /home/john/Programacao/Estudos/Esp32_Edge_AI/farol/blink/build/bootloader/bootloader.elf -m '/home/john/.espressif/python_env/idf6.1_py3.13_env/bin/python' '/home/john/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyACM0'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40378db2
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x14f0
+load:0x403c8700,len:0xde4
+load:0x403cb700,len:0x2f54
+entry 0x403c8904
+[0;32mI (24) boot: ESP-IDF v6.1-dev-4996-gc1b7f38212 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Sep 28 2026 18:45:35[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (29) boot: efuse block revision: v1.4[0m
+[0;32mI (33) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (37) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0990ch ( 39180) map[0m
+[0;32mI (95) esp_image: segment 1: paddr=00019934 vaddr=3fc90100 size=0314ch ( 12620) load[0m
+[0;32mI (98) esp_image: segment 2: paddr=0001ca88 vaddr=40374000 size=03590h ( 13712) load[0m
+[0;32mI (106) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=11b44h ( 72516) map[0m
+[0;32mI (123) esp_image: segment 4: paddr=00031b6c vaddr=40377590 size=08a98h ( 35480) load[0m
+[0;32mI (132) esp_image: segment 5: paddr=0003a60c vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (138) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (138) boot: Disabling RNG early entropy source...[0m
+[0;32mI (150) cpu_start: Multicore app[0m
+[0;32mI (158) cpu_start: GPIO 44 and 43 are used as console UART I/O pins[0m
+[0;32mI (159) cpu_start: Pro cpu start user code[0m
+[0;32mI (159) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (160) app_init: Application information:[0m
+[0;32mI (164) app_init: Project name:     blink[0m
+[0;32mI (168) app_init: App version:      adf0714-dirty[0m
+[0;32mI (172) app_init: Compile time:     Sep 28 2026 18:45:25[0m
+[0;32mI (177) app_init: ELF file SHA256:  54804aa03...[0m
+[0;32mI (182) app_init: ESP-IDF:          v6.1-dev-4996-gc1b7f38212[0m
+[0;32mI (187) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (191) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (205) heap_init: At 3FC93C10 len 00055B00 (342 KiB): RAM[0m
+[0;32mI (210) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (215) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (221) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (227) spi_flash: detected chip: boya[0m
+[0;32mI (229) spi_flash: flash io: dio[0m
+[0;33mW (232) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (245) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (251) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (258) main_task: Started on CPU0[0m
+[0;32mI (258) main_task: Calling app_main()[0m
+[0;32mI (268) FAROL: Inicializando controle do farol...[0m
+[0;32mI (268) FAROL: Ciclo do semáforo iniciado![0m
+[0;32mI (268) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (5278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (7278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (12278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (17278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (19278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (24278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (29278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (31278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (36278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (41278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (43278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (48278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (53278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (55278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (60278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (65278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (67278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (72278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (77278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (79278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (84278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (89278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (91278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (96278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (101278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (103278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (108278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (113278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (115278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (120278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (125278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (127278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (132278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (137278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (139278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (144278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (149278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (151278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (156278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (161278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (163278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (168278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (173278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (175278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (180278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (185278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (187278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (192278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (197278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (199278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (204278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (209278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (211278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (216278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (221278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (223278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (228278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (233278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (235278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (240278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (245278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (247278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (252278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (257278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (259278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (264278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (269278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (271278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (276278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (281278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (283278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (288278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (293278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (295278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (300278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (305278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (307278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (312278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (317278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (319278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (324278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (329278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (331278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (336278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (341278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (343278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (348278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (353278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (355278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (360278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (365278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (367278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (372278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (377278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (379278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (384278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (389278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (391278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (396278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (401278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (403278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (408278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (413278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (415278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (420278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (425278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (427278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (432278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (437278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (439278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (444278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (449278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (451278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (456278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (461278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (463278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (468278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (473278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (475278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (480278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (485278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (487278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (492278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (497278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (499278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (504278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (509278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (511278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (516278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (521278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (523278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (528278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (533278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (535278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (540278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (545278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (547278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (552278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (557278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (559278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (564278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (569278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (571278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (576278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (581278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (583278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (588278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (593278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (595278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (600278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (605278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (607278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (612278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (617278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (619278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (624278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (629278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (631278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (636278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (641278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (643278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (648278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (653278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (655278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (660278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (665278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (667278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (672278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (677278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (679278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (684278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (689278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (691278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (696278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (701278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (703278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (708278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (713278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (715278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (720278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (725278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (727278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (732278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (737278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (739278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (744278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (749278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (751278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (756278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (761278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (763278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (768278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (773278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (775278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (780278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (785278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (787278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (792278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (797278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (799278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (804278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (809278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (811278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (816278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (821278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (823278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (828278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (833278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (835278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (840278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (845278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (847278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (852278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (857278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (859278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (864278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (869278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (871278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (876278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (881278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (883278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (888278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (893278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (895278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (900278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (905278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (907278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (912278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (917278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (919278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (924278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (929278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (931278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (936278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (941278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (943278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (948278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (953278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (955278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (960278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (965278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (967278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (972278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (977278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (979278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (984278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (989278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (991278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (996278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1001278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1003278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (1008278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1013278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1015278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (1020278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1025278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1027278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (1032278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1037278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1039278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (1044278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1049278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1051278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (1056278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1061278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1063278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (1068278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1073278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1075278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (1080278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1085278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1087278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (1092278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1097278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1099278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (1104278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1109278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1111278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (1116278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1121278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1123278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (1128278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1133278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1135278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (1140278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1145278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1147278) FAROL: [ VERMELHO ] - Pare[0m
+[0;32mI (1152278) FAROL: [ VERDE ] - Sinal aberto[0m
+[0;32mI (1157278) FAROL: [ AMARELO ] - Atenção[0m
+[0;32mI (1159278) FAROL: [ VERMELHO ] - Pare[0m

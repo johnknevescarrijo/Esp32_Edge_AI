@@ -1,0 +1,2 @@
+source /home/john/Programacao/Estudos/Esp32_Edge_AI/farol/blink/build/gdbinit/symbols
+source /home/john/Programacao/Estudos/Esp32_Edge_AI/farol/blink/build/gdbinit/connect
